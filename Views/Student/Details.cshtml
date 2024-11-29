@@ -1,0 +1,45 @@
+﻿@model  WebApplicationTest.Models.CustomerViewModel
+
+@*@{
+    Layout = null;
+}*@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    @{
+        int maxCount = Math.Max(Model.list1.Count, Model.list2.Count);
+    }
+    <table class="table">
+        <tr>
+            <th>CUSTOMER-ID</th>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+            <th>EMAIL</th>
+            <th>STATE</th>
+            <th>Street</th>
+            <th>City</th>
+        </tr>
+
+        @for (int i = 0; i < maxCount; i++)
+        {
+            <tr>
+                <!-- Access item from list1 if it exists -->
+                <td>@(Model.list1[i].customer_id)</td>
+                <td>@(Model.list1[i].first_name)</td>
+                <td>@(Model.list1[i].last_name)</td>
+                <td>@(Model.list1[i].email)</td>
+                <td>@(Model.list1[i].state)</td>
+                <td>@(Model.list2[i].street)</td>
+                <td>@(Model.list2[i].city)</td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

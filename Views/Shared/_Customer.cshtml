@@ -1,0 +1,27 @@
+﻿@model WebApplicationTest.Models.Student
+<tr>
+        <td>
+            @Html.DisplayFor(modelItem => @Model.customer_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => @Model.first_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => @Model.last_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => @Model.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => @Model.state)
+        </td>
+        <td>
+            @Html.ActionLink("DELETE", "DeleteUpdate",
+                    new { cust_id = @Model.customer_id, operation = "DELETE" },
+                    new { @class = "btn btn-outline-dark" })
+            @Html.ActionLink("UPDATE", "DeleteUpdate",
+                new { cust_id = @Model.customer_id, operation = "UPDATE" },
+                new { @class = "btn btn-outline-dark" })
+        </td>
+    </tr>
+ 

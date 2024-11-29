@@ -1,0 +1,53 @@
+﻿@using System.Data
+@*@model DataSet*@
+@model IEnumerable<WebApplicationTest.Models.Student>
+@*@model Dictionary<string,WebApplicationTest.Models.Student>*@
+
+@*@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}*@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetallCustomers</title>
+</head>
+<body>
+
+    @Html.Action("CreateNewRecord", "Student")
+
+
+    <div>
+    </div>
+    <div>
+        <div class="card" style="width:16rem;">
+            <div class="card-content">
+                <h3>Total Customers - @ViewData["Count"]</h3>
+                
+            </div>
+        </div>
+        <br />
+        <div class="container">
+            <table class="table table-striped">
+                <tr>
+                    <th>CUSTOMER-ID</th>
+                    <th>FIRST NAME</th>
+                    <th>LAST NAME</th>
+                    <th>EMAIL</th>
+                    <th>STATE</th>
+                    <th>ACTIONS</th>
+                </tr>
+
+
+                @foreach (var item in Model)
+                {
+                    @Html.Partial("_Customer", item)
+                }
+
+            </table>
+        </div>
+    </div>
+</body>
+</html>
